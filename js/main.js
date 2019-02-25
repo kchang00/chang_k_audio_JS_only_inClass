@@ -1,4 +1,8 @@
 (() => {
+
+  // Hey Kayla! Look to line 154 for audio music mixer JS. Make sure to remove audio elements if you make them in JS and don't need them anymore
+  // Look to line 90 for D & D hw functions (removeChild)
+
   // stub
   console.log('game stuff ready!');
 
@@ -84,7 +88,17 @@
             }
 
             // create and play explosion sound
-            
+            let explosion = document.createElement('audio');
+
+            explosion.src = "audio/explode.mp3";
+
+            document.body.appendChild(explosion);
+
+            explosion.addEventListener('ended', () => {
+              document.body.removeChild(explosion);
+            });
+
+            explosion.play();
           }
         });
 
@@ -137,6 +151,16 @@
     bullets.push(newBullet);
 
     // create and play cheesy laser sound
+    let laser = document.createElement('audio');
+    // creates an <audio></audio> element
+    laser.src = "audio/laser.mp3"; // add an audio source
+    document.body.appendChild(laser); // add the element to the page
+
+    laser.addEventListener('ended', () => {
+      document.body.removeChild(laser);
+    });
+
+    laser.play();
     
   }
 
